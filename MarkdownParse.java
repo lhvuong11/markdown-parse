@@ -10,6 +10,9 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then take up to
         // the next )
         int currentIndex = 0;
+
+        // try catch statement? if statement to catch the exception
+
         while(currentIndex < markdown.length()) {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
@@ -17,7 +20,14 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
+
+            /* consider all conditions to prevent errors/ unexpected outputs!
+            (if (closeParen == -1){
+                throws new IOException();
+            }*/
         }
+
+
         return toReturn;
     }
     public static void main(String[] args) throws IOException {
