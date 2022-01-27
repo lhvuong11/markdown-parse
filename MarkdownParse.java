@@ -25,8 +25,12 @@ public class MarkdownParse {
             (if (closeParen == -1){
                 throws new IOException();
             }*/
-        }
 
+            System.out.println(currentIndex);
+
+            // adding a print
+            System.out.println(closeParen);
+        }
 
         return toReturn;
     }
