@@ -19,8 +19,25 @@ public class MarkdownParseTest {
 		Path fileName = Path.of("test-file.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
-
+        //System.out.println(links);
         assertEquals(List.of("https://something.com", "some-page.html"), links);
     }
 
+    @Test
+    public void getlinks2() throws IOException {
+		Path fileName = Path.of("test-file2.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        //System.out.println(links);
+        assertEquals(List.of(""), links);
+    }
+
+   @Test
+    public void getlinks3() throws IOException {
+		Path fileName = Path.of("test-file3.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        //System.out.println(links);
+        assertEquals(List.of("link.com)"), links);
+    }
 }

@@ -12,9 +12,11 @@ public class MarkdownParse {
         int currentIndex = 0;
 
         // try catch statement? if statement to catch the exception
-
         while(currentIndex < markdown.length()) {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
+
+            System.out.println(currentIndex);
+            
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
@@ -29,7 +31,7 @@ public class MarkdownParse {
             System.out.println(currentIndex);
 
             // adding a print
-            System.out.println(closeParen);
+            //System.out.println(closeParen);
         }
 
         return toReturn;

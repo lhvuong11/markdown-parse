@@ -1,3 +1,3 @@
 # Title
 
-( [a link!](link.com) )
+Check it out here: ( [a link!](link.com) )

@@ -1,3 +1,3 @@
 # Title
 
-[a link!](Link.(com))
+[a link!]()
