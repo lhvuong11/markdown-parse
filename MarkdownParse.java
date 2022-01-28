@@ -11,18 +11,35 @@ public class MarkdownParse {
         // the next )
         int currentIndex = 0;
 
-        // try catch statement? if statement to catch the exception
         while(currentIndex < markdown.length()) {
-            // indexOf is probably returning a -1 since
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
-            int closeParen = markdown.indexOf(")", openParen);
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
+
+            int openParen2 = markdown.indexOf("(", openParen + 1);
+            int closeParen2 = markdown.indexOf(")", openParen2 + 1);
+            int closeParen;
+
+            System.out.println("open: " + openParen);
+            System.out.println("open2: " + openParen2);
+            System.out.println("close2 : " + closeParen2);
+
+            if (openParen2 == -1) // if there's no openParen2
+            {
+                closeParen = markdown.indexOf(")", openParen);
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            }
+            else // for test-file2.md
+            {
+                closeParen = markdown.indexOf(")", closeParen2 + 1);
+
+                System.out.println("closeParen : " + closeParen);
+
+                toReturn.add(markdown.substring(openParen + 1, closeParen2));
+
+            }
             currentIndex = closeParen + 1;
 
-            int nextOpenParen; // = markdown.indexOf("(", )
-            int newxtClosedParen;
 
         }
 
