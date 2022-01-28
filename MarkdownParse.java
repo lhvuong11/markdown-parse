@@ -13,10 +13,8 @@ public class MarkdownParse {
 
         // try catch statement? if statement to catch the exception
         while(currentIndex < markdown.length()) {
+            // indexOf is probably returning a -1 since
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
-
-            System.out.println(currentIndex);
-            
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
@@ -28,7 +26,7 @@ public class MarkdownParse {
                 throws new IOException();
             }*/
 
-            System.out.println(currentIndex);
+           // System.out.println(currentIndex);
 
             // adding a print
             //System.out.println(closeParen);
@@ -40,6 +38,6 @@ public class MarkdownParse {
 		Path fileName = Path.of(args[0]);
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = getLinks(contents);
-        System.out.println(links);
+       // System.out.println(links);
     }
 }
