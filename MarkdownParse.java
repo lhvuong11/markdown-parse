@@ -15,31 +15,45 @@ public class MarkdownParse {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
+            int closeParen = markdown.indexOf(")", openParen);
+
 
             int openParen2 = markdown.indexOf("(", openParen + 1);
             int closeParen2 = markdown.indexOf(")", openParen2 + 1);
-            int closeParen;
-
             System.out.println("open: " + openParen);
             System.out.println("open2: " + openParen2);
             System.out.println("close2 : " + closeParen2);
+            System.out.println("closeParen : " + closeParen);
 
-            if (openParen2 == -1) // if there's no openParen2
+            
+            if (openParen2 == -1 && closeParen == -1 && closeParen2 == -1) // test-file4.md
             {
+                System.out.println("In this block 3");
+                closeParen = markdown.indexOf("]", openParen);
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+                return toReturn;
+            }
+            
+            
+            if (openParen2 == -1 || closeParen2 == -1) // if there's no openParen2
+            {
+                System.out.println("In this block");
                 closeParen = markdown.indexOf(")", openParen);
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
+                return toReturn;
             }
-            else // for test-file2.md
+            
+            
+            if (openParen2 != -1 || closeParen2 != -1) // for test-file2.md
             {
+                System.out.println("In this block 2");
                 closeParen = markdown.indexOf(")", closeParen2 + 1);
 
-                System.out.println("closeParen : " + closeParen);
-
-                toReturn.add(markdown.substring(openParen + 1, closeParen2));
-
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+                return toReturn;
             }
-            currentIndex = closeParen + 1;
 
+            currentIndex = closeParen + 1;
 
         }
 
