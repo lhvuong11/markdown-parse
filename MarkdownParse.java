@@ -30,7 +30,6 @@ public class MarkdownParse {
             
             if (openParen2 == -1 || closeParen2 == -1) // if there's no openParen2
             {
-                System.out.println("In this block");
                 closeParen = markdown.indexOf(")", openParen);
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
                 return toReturn;
@@ -38,7 +37,6 @@ public class MarkdownParse {
             
             if (openParen2 != -1 || closeParen2 != -1) // for test-file2.md
             {
-                System.out.println("In this block 2");
                 closeParen = markdown.indexOf(")", closeParen2 + 1);
 
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
