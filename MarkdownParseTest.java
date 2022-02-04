@@ -71,7 +71,7 @@ public class MarkdownParseTest {
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         //System.out.println(links);
-        assertEquals(List.of("link.com"), links);
+        assertEquals(null, links);
 
     }
 

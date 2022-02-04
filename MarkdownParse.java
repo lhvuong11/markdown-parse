@@ -21,11 +21,11 @@ public class MarkdownParse {
             int closeParen2 = markdown.indexOf(")", openParen2 + 1);
 
             
-            if (closeParen == -1) // test-file4.md
+            if (openParen == -1 || closeParen == -1) // test-file4.md
             {
                 System.out.println("Invalid Input detected. Please include link in only one pair of parentheses.");
                 return null;
-            } 
+            }
 
             if (nextCloseBracket == -1)
             {
@@ -41,12 +41,9 @@ public class MarkdownParse {
             }
 
 
-            //toReturn.add(markdown.substring(openParen + 1, closeParen));
-            currentIndex = closeParen + 1;
 
-           /* System.out.println(openParen);
-            System.out.println(closeParen);
-            System.out.println(closeParen);*/
+           // toReturn.add(markdown.substring(openParen + 1, closeParen));
+            currentIndex = closeParen + 1;
 
         }
 
